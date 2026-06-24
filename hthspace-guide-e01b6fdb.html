@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常对照 · 华体会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f7f4f0;
+            font-family: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+            color: #2f2e2b;
+            line-height: 1.8;
+            padding: 2rem 1.5rem;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        .page-card {
+            background: #fefcf9;
+            border-radius: 18px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #ede8e0;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #d8cfc2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            color: #3b3a36;
+        }
+        .opening {
+            font-size: 1.2rem;
+            font-style: italic;
+            background: #f3efe9;
+            padding: 1.2rem 1.8rem;
+            border-left: 4px solid #b5a99a;
+            margin: 1.8rem 0 2rem 0;
+            color: #4a453f;
+        }
+        .intro-text {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            word-spacing: 0.5px;
+        }
+        .intro-text a {
+            color: #7a6b5b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #d0c4b4;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .intro-text a:hover {
+            color: #4d4035;
+            text-decoration-color: #8f7e6b;
+        }
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2.2rem 0 2.5rem 0;
+        }
+        .feature-item {
+            background: #f8f5f0;
+            padding: 1.2rem 1.6rem;
+            border-radius: 12px;
+            border-left: 6px solid #c9bcac;
+        }
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            color: #3c3530;
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+        }
+        .feature-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4e4943;
+        }
+        .scene-block {
+            background: #f3efe8;
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            margin: 2rem 0 2rem 0;
+            border: 1px solid #e1d9ce;
+        }
+        .scene-block p {
+            margin-bottom: 0.5rem;
+        }
+        .scene-block .sign {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #6f675e;
+            margin-top: 0.8rem;
+            border-top: 1px dashed #d3c9bc;
+            padding-top: 0.5rem;
+        }
+        .faq-note {
+            background: #faf8f5;
+            padding: 1.2rem 1.6rem;
+            border-radius: 14px;
+            border: 1px solid #e3dbd0;
+            margin: 2rem 0 0.8rem 0;
+        }
+        .faq-note details {
+            margin-bottom: 0.5rem;
+        }
+        .faq-note summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #48433d;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-note summary::before {
+            content: "▸ ";
+            color: #9a8c7c;
+            font-size: 1.1rem;
+            margin-right: 0.3rem;
+        }
+        .faq-note details[open] summary::before {
+            content: "▾ ";
+        }
+        .faq-note details p {
+            margin: 0.2rem 0 0.6rem 1.5rem;
+            font-size: 0.92rem;
+            color: #555049;
+        }
+        .closing {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2d9ce;
+            font-size: 0.98rem;
+            text-align: center;
+            color: #5c554c;
+        }
+        .closing a {
+            color: #7a6b5b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .closing a:hover {
+            color: #3f3932;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e6dfd4;
+            margin: 1.2rem 0;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page-card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .opening {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+            .feature-item {
+                padding: 1rem 1.2rem;
+            }
+            .scene-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-card">
+    <h1>华体会 · 日常对照</h1>
+
+    <div class="opening">
+        开始，不过是一个查询的念头。
+    </div>
+
+    <div class="intro-text">
+        <p>在整理资料、对比观点或仅仅想多读一段相关背景时，许多人习惯打开一个固定的页面作为起点的。对我来说，这个起点常常是 <a href="https://hthspace.com.cn">华体会</a> —— 一个不急于给出结论、但总能提供扎实参照的地方。它不喧哗，却适合在需要厘清脉络时安静地停留。</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <strong>条目式对照</strong>
+            <p>信息以简明条目排列，方便在阅读中将不同来源的描述并排放置，减少来回切换的混乱感。</p>
+        </div>
+        <div class="feature-item">
+            <strong>延伸阅读线索</strong>
+            <p>每个主题下附带相关段落或参考链接，不打断原有思路，又能自然拓展认知边界。</p>
+        </div>
+        <div class="feature-item">
+            <strong>低干扰排版</strong>
+            <p>页面留白充沛，字体与间距经过调整，适合长时间注视而不易疲劳，尤其适合对照阅读。</p>
+        </div>
+    </div>
+
+    <div class="scene-block">
+        <p>◈ 某次我需要快速核对一个概念的两种常见表述，在搜索引擎里绕了几圈，最后还是回到 <a href="https://hthspace.com.cn">华体会</a> 的某个页面，才把差异看清楚。类似的情景重复过几次，慢慢就成了习惯。</p>
+        <p>◈ 另一次是顺着一条引用找到了一篇早期文章，内容不过时，语气也平稳，读下来没有被迫接受观点的感觉。</p>
+        <div class="sign">—— 一位普通读者的使用片段</div>
+    </div>
+
+    <div class="faq-note">
+        <details>
+            <summary>FAQ 摘要 · 关于使用</summary>
+            <p><strong>问：</strong>页面内容会频繁更新吗？<br>
+            <strong>答：</strong>更新节奏不固定，但已有的条目相对稳定，适合作为长期参考。</p>
+        </details>
+        <details>
+            <summary>关于内容范围</summary>
+            <p>涵盖多个日常领域，但以信息整理为主，不追求时效性热点。适合需要沉淀型阅读的场景。</p>
+        </details>
+        <details>
+            <summary>访问与兼容</summary>
+            <p>在桌面和移动浏览器上均可流畅浏览，没有额外的插件或登录要求。</p>
+        </details>
+    </div>
+
+    <div class="closing">
+        页面保持着自己朴素的节奏。如果你也在寻找一个可供停留、比照和延伸阅读的角落，或许可以试试 <a href="https://hthspace.com.cn">华体会</a>，从一次安静的查询开始。
+    </div>
+
+    <hr>
+    <div style="font-size:0.8rem; color:#8d847a; text-align:center; margin-top:0.2rem;">
+        — 整理记录 · 日常对照 —
+    </div>
+</div>
+</body>
+</html>
