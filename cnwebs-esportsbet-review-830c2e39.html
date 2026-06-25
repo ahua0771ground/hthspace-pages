@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电竞竞猜 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f9fc;
+            color: #1a2b3c;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.2rem 0 3rem;
+        }
+        /* 网格卡片背景装饰 */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(0, 150, 136, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* hero 简洁 */
+        .hero {
+            margin-bottom: 2.8rem;
+            border-left: 6px solid #009688;
+            padding-left: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #004d40;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #3e6b63;
+            background: #e0f2f1;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-top: 0.3rem;
+        }
+
+        /* 导语卡片 */
+        .intro-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.4rem;
+            box-shadow: 0 4px 12px rgba(0, 128, 128, 0.06);
+            border: 1px solid #d9e8e6;
+        }
+        .intro-card p {
+            font-size: 1.12rem;
+            color: #1a3a3a;
+        }
+        .intro-card strong {
+            color: #00695c;
+        }
+
+        /* 多段正文网格卡片 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .grid-item {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e2efed;
+            transition: box-shadow 0.2s;
+        }
+        .grid-item h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #004d40;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .grid-item h3::before {
+            content: "▹";
+            color: #009688;
+            font-weight: 300;
+        }
+        .grid-item p {
+            color: #2d4947;
+            margin-bottom: 0.5rem;
+        }
+        .grid-item p:last-child {
+            margin-bottom: 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            margin-right: 0.4rem;
+        }
+
+        /* 引用提示块 */
+        .quote-block {
+            background: #e8f6f3;
+            border-left: 5px solid #009688;
+            padding: 1.2rem 1.8rem;
+            border-radius: 18px;
+            margin: 2rem 0 2rem 0;
+            font-size: 1rem;
+            color: #20564e;
+        }
+        .quote-block span {
+            font-weight: 500;
+            color: #004d40;
+        }
+
+        /* 访问句（自然句子嵌入链接） */
+        .visit-sentence {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #cde0dc;
+            margin: 1.8rem 0 2.2rem;
+            font-size: 1.08rem;
+            text-align: center;
+        }
+        .visit-sentence a {
+            color: #00695c;
+            text-decoration: none;
+            font-weight: 550;
+            border-bottom: 2px solid #80cbc4;
+            transition: border-color 0.15s;
+        }
+        .visit-sentence a:hover {
+            border-bottom-color: #004d40;
+        }
+
+        /* 附注 / faq 风格摘要 */
+        .faq-note {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #d1e4df;
+            margin-top: 0.8rem;
+        }
+        .faq-note h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #004d40;
+            margin-bottom: 0.8rem;
+        }
+        .faq-note details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dashed #bfd6d1;
+            padding-bottom: 0.5rem;
+        }
+        .faq-note summary {
+            cursor: pointer;
+            font-weight: 450;
+            color: #1b4b43;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-note summary::before {
+            content: "❔";
+            font-size: 0.9rem;
+            margin-right: 8px;
+            color: #009688;
+        }
+        .faq-note details[open] summary::before {
+            content: "❓";
+        }
+        .faq-note .answer {
+            padding: 0.6rem 0 0.2rem 1.2rem;
+            color: #2b5b53;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #b2dfdb, transparent);
+            margin: 2rem 0 1.8rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5f7e78;
+            margin-top: 2rem;
+        }
+
+        /* 移动端友好 */
+        @media (max-width: 600px) {
+            body { padding: 0 14px; }
+            .page { padding: 1.5rem 0 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .intro-card, .grid-item, .quote-block, .visit-sentence, .faq-note {
+                padding: 1.3rem 1.2rem;
+            }
+            .grid-item h3 { font-size: 1.15rem; }
+            .hero { padding-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>电竞竞猜 · 资料整理</h1>
+            <div class="sub">信息索引 · 观察笔记</div>
+        </div>
+
+        <!-- 导语卡片 -->
+        <div class="intro-card">
+            <p>从赛事数据到竞猜逻辑，<strong>电竞竞猜</strong>逐渐成为信息型参与者关注的新领域。本文基于公开资料与社区讨论，整理了一份偏向索引与脉络的笔记，供感兴趣的朋友作为参考线索。不构成任何预测或建议，仅作知识梳理。</p>
+        </div>
+
+        <!-- 多段正文网格卡片 -->
+        <div class="card-grid">
+            <div class="grid-item">
+                <h3>数据维度的变化</h3>
+                <p>过去几年，电竞项目的数据维度越来越细：选手历史对位、英雄池效率、经济转化率、中期决策偏好……这些原本只属于战队的内部参数，如今通过公开平台逐步向爱好者开放。对于关注<strong>电竞竞猜</strong>的人而言，多源数据的交叉验证成为基本工作流之一。</p>
+                <p><span class="tag">索引</span> HLTV、Oracle’s Elixir、Liquipedia 等站点提供了大量结构化数据。</p>
+            </div>
+            <div class="grid-item">
+                <h3>信息整理的常见切入点</h3>
+                <p>一种常见做法是围绕“版本变动—队伍适应—选手状态”建立三角档案。版本更新往往带来战术权重偏移，而队伍的适应速度会直接影响短期表现。在整理过程中，将版本补丁说明、近期对局记录与选手社交动态放在同一时间轴上分析，能帮助理解某些竞猜指数波动背后的可能原因。</p>
+                <p><span class="tag">技巧</span> 时间线工具（如 Timeline / Notion）能辅助信息归类。</p>
+            </div>
+            <div class="grid-item">
+                <h3>场景：从资料到参考</h3>
+                <p>假设你关注某联赛的季后赛阶段，那么提前整理参赛队伍的近期地图池、禁用倾向以及关键选手的英雄熟练度，就是典型的资料工作。这些内容无法直接推导出结果，但能够为你提供判断背景。许多长期关注<strong>电竞竞猜</strong>的资料型用户，都会维护一份个人赛事档案。</p>
+                <p>一个小建议：注意区分“数据相关性”与“因果性”，避免把偶然模式当作规律。</p>
+            </div>
+        </div>
+
+        <!-- 引用提示块 -->
+        <div class="quote-block">
+            <span>✎ 引用提示</span>：本文所提及的信息来源均为公开赛事数据平台与社区分析文章。任何形式的竞猜都存在不确定性，资料整理只能辅助理解，无法消除风险。请保持独立判断。
+        </div>
+
+        <!-- 自然访问句（包含链接） -->
+        <div class="visit-sentence">
+            如果你希望进一步查看赛事信息与竞猜索引，可以前往 
+            <a href="https://cnwebs-esportsbet.com">电竞竞猜</a> 
+            浏览相关资料页面，那里整合了不少主题源链接与日期索引。
+        </div>
+
+        <!-- FAQ 摘要风格 -->
+        <div class="faq-note">
+            <h4>❖ 资料整理 FAQ 摘要</h4>
+            <details>
+                <summary>资料索引通常包含哪些内容？</summary>
+                <div class="answer">常见的索引模块包括：赛事日历、战队排名变动、版本更新日志、选手数据卡、以及社区分析长文。每个模块都可以单独维护标签。</div>
+            </details>
+            <details>
+                <summary>如何避免信息过载？</summary>
+                <div class="answer">建议以“具体问题”为导向（例如“某队近期蓝色方胜率如何？”）再筛选对应数据，而不是泛泛浏览所有指标。定期整理笔记，只保留有参考价值的片段。</div>
+            </details>
+            <details>
+                <summary>引用外部资料时需要注意什么？</summary>
+                <div class="answer">核对数据来源的时效性与统计口径。不同平台对同一指标（如“KDA”）的计算方式可能存在细微差别，引用时最好注明来源及截止日期。</div>
+            </details>
+        </div>
+
+        <hr>
+        <div class="footer-note">
+            · 整理日志 · 基于公开资料 · 仅作信息参考 ·
+        </div>
+    </div>
+</body>
+</html>
